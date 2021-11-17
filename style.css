@@ -19,8 +19,8 @@ img {
     color: #7cda24;
 }
 
-#progress-wrapper {
-    width: 100%;
+.total-mints {
+    margin-bottom: 0;
 }
 
 #progress {
