@@ -1,0 +1,46 @@
+@font-face {
+    font-family: Poppins;
+    src: url(Poppins.woff2);
+}
+
+html, body {
+    background-color: black;
+    /* overflow: hidden; */
+}
+
+.container {
+    font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
+    font-size: 30px;
+    color: #7cda24;
+}
+
+#progress-wrapper {
+    width: 100%;
+}
+
+#progress {
+    width: 100%;
+    background-color: white;
+}
+  
+#bar {
+    width: 1%;
+    height: 30px;
+    background-color: #7cda24;
+}
+
+.bar-percent {
+    margin: 0;
+    float: right;
+}
+
+.footer {
+    font-size: 20px;
+    color: white;
+    font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
+}
