@@ -8,6 +8,11 @@ html, body {
     /* overflow: hidden; */
 }
 
+img {
+    width: 174px;
+    height: 66px;
+}
+
 .container {
     font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
     font-size: 30px;
@@ -43,6 +48,27 @@ html, body {
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%)
+}
+
+@media (max-width:572px) {
+    img {
+    width: 116px;
+    height: 44px;
+    }
+}
+
+@media (max-width:432px) {
+    img {
+    width: 116px;
+    height: 44px;
+    }
+}
+
+@media (max-width:330px) {
+    img {
+    width: 116px;
+    height: 44px;
+    }
 }
 
 @media (max-width:718px) {
