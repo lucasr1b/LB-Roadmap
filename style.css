@@ -44,3 +44,27 @@ html, body {
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%)
 }
+
+@media (max-width:718px) {
+    .footer {
+        font-size: 15px;
+    }
+}
+
+@media (max-width:540px) {
+    .footer {
+        font-size: 13px;
+    }
+}
+
+@media (max-width:465px) {
+    .footer {
+        font-size: 10px;
+    }
+}
+
+@media (max-width:360px) {
+    .footer {
+        font-size: 8px;
+    }
+}
