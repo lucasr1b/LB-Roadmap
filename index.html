@@ -8,15 +8,18 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="https://lazybunnynft.io/wp-content/uploads/2021/10/cropped-favicon-32x32.png">
 </head>
-<body onload="setMintValue()">
+<body onload="setup()">
     <img src="https://lazybunnynft.io/wp-content/uploads/2021/10/New-Project-3.png">
     <div class="container">
-        <p class="total-mints">Total Mints: <span id="totalMint"></span>/5555</p>
+        <p class="total-mints">Total Mints: <span id="total-mint"></span>/5555</p>
         <div class="progress-wrapper">
         <div id="progress">
             <div id="bar"></div>
         </div>
-        <p class="bar-percent"><span id="mintPercent"></span></p>
+        <div class="bar-details">
+            <p class="bar-timer" id="update-timer">Updating in</p>
+            <p class="bar-percent"><span id="mint-percent"></span></p>
+        </div>
         </div>
     </div>
     <div class="footer">Made with ❤️ by LucasCodes#0001</div>

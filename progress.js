@@ -1,4 +1,3 @@
-
 const options = {method: 'GET', headers: {Accept: 'application/json'}};
 
 const getTotalMints = async() => {
@@ -8,32 +7,46 @@ const getTotalMints = async() => {
 }
 
 async function updateMintStats(){
-  let mints = await getTotalMints();
+  const mints = await getTotalMints();
 
-  document.getElementById("totalMint").innerHTML = mints;
-  document.getElementById("mintPercent").innerHTML = parseInt(mints/5555*100) + "%";
-  console.log("Updated!")
+  setupTimer();
+  progress(parseInt(100-(mints/5555*100)), parseInt((mints/5555*100)));
+
+  document.getElementById("total-mint").innerText = mints;
+  document.getElementById("mint-percent").innerText = parseInt(mints/5555*100) + "%";
+  console.log("Updated total mints!")
 }
 
-async function setMintValue(){
-    let mints = await getTotalMints();
+async function setup(){
+    const mints = await getTotalMints();
 
     updateMintStats();
-    progress(parseInt(mints/5555*100));
+    progress(1, parseInt(mints/5555*100));
 
     setInterval(function(){updateMintStats()}, 10000)
 }
 
+function setupTimer(){
+  const timer = document.getElementById("update-timer");
+  let time = 9;
+  const timerInterval = setInterval(() => {
+    if (time <= 0) {
+      clearInterval(timerInterval);
+      timer.innerText = "Updating now...";
+      time = 9;
+    } else {timer.innerText = `Updating in ${time--}`}
+  }, 1000)
+}
+
 let i = 0;
 
-function progress(val) {
+function progress(width, totalPercent) {
   if (i == 0) {
     i = 1;
-    let bar = document.getElementById("bar");
-    let width = 1;
-    let id = setInterval(frame, 10);
+    const bar = document.getElementById("bar");
+    const id = setInterval(frame, 10);
     function frame() {
-      if (width >= val) {
+      if (width >= totalPercent) {
         clearInterval(id);
         i = 0;
       } else {
