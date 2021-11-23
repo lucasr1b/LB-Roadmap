@@ -1,19 +1,27 @@
 
 const options = {method: 'GET', headers: {Accept: 'application/json'}};
 
-function getTotalMints(){
-
-fetch('https://api.opensea.io/api/v1/collection/lbo/stats', options)
-  .then(response => response.json())
-  .then(response => setMintValue(response.stats.count))
-  .catch(err => console.error(err));
-
+const getTotalMints = async() => {
+  let openseaData = await fetch("https://api.opensea.io/api/v1/collection/lbo/stats");
+  let openseaDataJson = await openseaData.json();
+  return openseaDataJson.stats.count;
 }
 
-function setMintValue(amount){
-    document.getElementById("totalMint").innerHTML = amount;
-    document.getElementById("mintPercent").innerHTML = ((parseInt(amount/5555*100))) + "%";
-    progress(parseInt(amount/5555*100));
+async function updateMintStats(){
+  let mints = await getTotalMints();
+
+  document.getElementById("totalMint").innerHTML = mints;
+  document.getElementById("mintPercent").innerHTML = parseInt(mints/5555*100) + "%";
+  console.log("Updated!")
+}
+
+async function setMintValue(){
+    let mints = await getTotalMints();
+
+    updateMintStats();
+    progress(parseInt(mints/5555*100));
+
+    setInterval(function(){updateMintStats()}, 10000)
 }
 
 let i = 0;
