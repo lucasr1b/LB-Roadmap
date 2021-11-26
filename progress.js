@@ -10,7 +10,7 @@ async function updateMintStats(){
   const mints = await getTotalMints();
 
   setupTimer();
-  progress(parseInt(100-(mints/5555*100)), parseInt((mints/5555*100)));
+  progress(parseInt((mints/5555*100)), parseInt((mints/5555*100)));
 
   document.getElementById("total-mint").innerText = mints;
   document.getElementById("mint-percent").innerText = parseInt(mints/5555*100) + "%";
